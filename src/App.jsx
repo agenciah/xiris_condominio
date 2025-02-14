@@ -1,37 +1,110 @@
-import { HashRouter as Router, Route, Routes, Link } from "react-router-dom";
+import { HashRouter as Router, Routes, Route, Link } from "react-router-dom";
+import { Container, AppBar, Toolbar, Typography, Button, Box } from "@mui/material";
+import residenza_logo from "./assets/logos/Residenza_logo.jpg";
+import logo_xiris_ac from "./assets/logos/logo_xiris ac.png";
+import Mantto_Main from "./components/reporte_mantto/mantto_main";
+import Checklist_Main from "./components/checklist/checklist_main";
+import Avisos_main from "./components/avisos_xiris/avisos_main";
+import Mudanzas_main from "./components/mudanzas/mudanzas_main";
 
-const Home = () => <h2>Página Principal</h2>;
-const Page1 = () => <h2>Componente 1</h2>;
-const Page2 = () => <h2>Componente 2</h2>;
-const Page3 = () => <h2>Componente 3</h2>;
-const Page4 = () => <h2>Componente 4</h2>;
-const Page5 = () => <h2>Componente 5</h2>;
+const NavBar = () => {
+  return (
+    <AppBar position="fixed" sx={{ backgroundColor: "rgb(1, 98, 153)", width: "100%" }}>
+      <Toolbar>
+        <Typography variant="h6" sx={{ flexGrow: 1 }}>
+          Agencia Habitat
+        </Typography>
+        <Button color="inherit" component={Link} to="/">Inicio</Button>
+      </Toolbar>
+    </AppBar>
+  );
+};
+
+const Home = () => {
+
+  const handleCopy = () => {
+    navigator.clipboard.writeText("https://agenciah.github.io/residenza_condominio_xiris_aviso_de_mudanza/");
+    alert("¡Enlace copiado al portapapeles!");
+  };
+  
+  return (
+    <Container>
+      <Typography variant="h5" gutterBottom>
+        Selecciona la herramienta
+      </Typography>
+      <Box display="flex" flexDirection="column" gap={2}>
+        <Button variant="contained" component={Link} to="/checklist">
+          Checklist recorrido condominio
+        </Button>
+        <Button variant="contained" component={Link} to="/mantto">
+          Reporte de mantenimiento
+        </Button>
+        <Button variant="contained" component={Link} to="/Avisos">
+          Avisos generales
+        </Button>
+      </Box>
+      <Container
+        sx={{
+          marginTop: "20px",
+          padding: "15px",
+          backgroundColor: "#f5f5f5",
+          borderRadius: "8px",
+          boxShadow: "0px 2px 5px rgba(0, 0, 0, 0.1)"
+        }}
+      >
+        <Box>
+          <Typography  variant="h6" gutterBottom>
+            Link de formulario para Airbnb.
+          </Typography>
+          <Typography>
+            Copia el link y mandalo al propietario para que llene el formulario, al final, por favor solicita que te envíen la imagen generada.
+          </Typography>
+          <Box display="flex" alignItems="center" gap={1} marginTop={1}>
+          <Typography sx={{ wordBreak: "break-all" }}>
+            https://agenciah.github.io/residenza_condominio_xiris_aviso_de_mudanza/
+          </Typography>
+          <Button variant="contained" onClick={handleCopy} sx={{ backgroundColor: "#26A9E1", color: "#fff" }}>
+            Copiar
+          </Button>
+        </Box>
+        </Box>
+      </Container>
+      
+    </Container>
+  );
+};
 
 function App() {
   return (
     <Router>
-      <div style={{ textAlign: "center", padding: 20 }}>
-        <h1>Prueba de HashRouter</h1>
-        <nav>
-          <Link to="/">Inicio</Link> | 
-          <Link to="/page1"> Página 1</Link> | 
-          <Link to="/page2"> Página 2</Link> | 
-          <Link to="/page3"> Página 3</Link> | 
-          <Link to="/page4"> Página 4</Link> | 
-          <Link to="/page5"> Página 5</Link>
-        </nav>
+      <NavBar />
+
+      <Box sx={{
+        width: "100%",
+        display: "flex",
+        justifyContent: "space-between",
+        alignItems: "center",
+        padding: "10px 20px",
+        paddingTop: "40px", // Espacio para el navbar fijo
+        position: "relative"
+      }}>
+        <img src={residenza_logo} alt="Residenza Logo" style={{ maxWidth: "80px", height: "auto" }} />
+        <img src={logo_xiris_ac} alt="Xiris Logo" style={{  marginRight: "20px",maxWidth: "80px", height: "auto" }} />
+      </Box>
+
+      <Container sx={{ maxWidth: "1200px", marginTop: "10px" }}>
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/page1" element={<Page1 />} />
-          <Route path="/page2" element={<Page2 />} />
-          <Route path="/page3" element={<Page3 />} />
-          <Route path="/page4" element={<Page4 />} />
-          <Route path="/page5" element={<Page5 />} />
+          <Route path="/mantto" element={<Mantto_Main />} />
+          <Route path="/checklist" element={<Checklist_Main />} />
+          <Route path="/Avisos" element={<Avisos_main />} />
+          <Route path="/mudanza" element={<Mudanzas_main />} />
         </Routes>
-      </div>
+
+      </Container>
+
     </Router>
   );
 }
 
 export default App;
-
