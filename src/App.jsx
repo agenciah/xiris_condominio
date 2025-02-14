@@ -5,7 +5,6 @@ import logo_xiris_ac from "./assets/logos/logo_xiris ac.png";
 import Mantto_Main from "./components/reporte_mantto/mantto_main";
 import Checklist_Main from "./components/checklist/checklist_main";
 import Avisos_main from "./components/avisos_xiris/avisos_main";
-import Mudanzas_main from "./components/mudanzas/mudanzas_main";
 
 const NavBar = () => {
   return (
@@ -22,11 +21,11 @@ const NavBar = () => {
 
 const Home = () => {
 
-  const handleCopy = () => {
-    navigator.clipboard.writeText("https://agenciah.github.io/residenza_condominio_xiris_aviso_de_mudanza/");
+  const handleCopy = (url) => {
+    navigator.clipboard.writeText(url);
     alert("¡Enlace copiado al portapapeles!");
   };
-  
+
   return (
     <Container>
       <Typography variant="h5" gutterBottom>
@@ -43,6 +42,8 @@ const Home = () => {
           Avisos generales
         </Button>
       </Box>
+
+      {/* Caja con enlace para "Formulario para Airbnb" */}
       <Container
         sx={{
           marginTop: "20px",
@@ -53,23 +54,80 @@ const Home = () => {
         }}
       >
         <Box>
-          <Typography  variant="h6" gutterBottom>
+          <Typography variant="h6" gutterBottom>
             Link de formulario para Airbnb.
           </Typography>
           <Typography>
-            Copia el link y mandalo al propietario para que llene el formulario, al final, por favor solicita que te envíen la imagen generada.
+            Copia el link y mándalo al propietario para que llene el formulario, al final, por favor solicita que te envíen la imagen generada.
           </Typography>
           <Box display="flex" alignItems="center" gap={1} marginTop={1}>
-          <Typography sx={{ wordBreak: "break-all" }}>
-            https://agenciah.github.io/residenza_condominio_xiris_aviso_de_mudanza/
-          </Typography>
-          <Button variant="contained" onClick={handleCopy} sx={{ backgroundColor: "#26A9E1", color: "#fff" }}>
-            Copiar
-          </Button>
-        </Box>
+            <Button 
+              variant="contained" 
+              onClick={() => handleCopy("https://agenciah.github.io/residenza_condominio_xiris_aviso_de_mudanza/")} 
+              sx={{ backgroundColor: "#26A9E1", color: "#fff" }}
+            >
+              Copiar
+            </Button>
+          </Box>
         </Box>
       </Container>
-      
+
+      {/* Nueva Caja con enlace para "Entrada Mudanza Xiris" */}
+      <Container
+        sx={{
+          marginTop: "20px",
+          padding: "15px",
+          backgroundColor: "#f5f5f5",
+          borderRadius: "8px",
+          boxShadow: "0px 2px 5px rgba(0, 0, 0, 0.1)"
+        }}
+      >
+        <Box>
+          <Typography variant="h6" gutterBottom>
+            Link de formulario para Entrada Mudanza Condominio Xiris.
+          </Typography>
+          <Typography>
+            Copia el link y mándalo al propietario para que llene el formulario, al final, por favor solicita que te envíen la imagen generada.
+          </Typography>
+          <Box display="flex" alignItems="center" gap={1} marginTop={1}>
+            <Button 
+              variant="contained" 
+              onClick={() => handleCopy("https://agenciah.github.io/entrada_mudanza_xiris/")} 
+              sx={{ backgroundColor: "#26A9E1", color: "#fff" }}
+            >
+              Copiar
+            </Button>
+          </Box>
+        </Box>
+        
+      </Container>
+      <Container
+          sx={{
+            marginTop: "20px",
+            padding: "15px",
+            backgroundColor: "#f5f5f5",
+            borderRadius: "8px",
+            boxShadow: "0px 2px 5px rgba(0, 0, 0, 0.1)"
+          }}
+        >
+        <Box>
+          <Typography variant="h6" gutterBottom>
+            Link de formulario aceptación de reglamento Condominio Xiris.
+          </Typography>
+          <Typography>
+            Copia el link y mándalo al propietario para que llene el formulario, al final, por favor solicita que te envíen el pdf generado.
+          </Typography>
+          <Box display="flex" alignItems="center" gap={1} marginTop={1}>
+            <Button 
+              variant="contained" 
+              onClick={() => handleCopy("https://agenciah.github.io/residenza_responsiva_xiris/")} 
+              sx={{ backgroundColor: "#26A9E1", color: "#fff" }}
+            >
+              Copiar
+            </Button>
+          </Box>
+        </Box>
+        </Container>
     </Container>
   );
 };
@@ -89,7 +147,7 @@ function App() {
         position: "relative"
       }}>
         <img src={residenza_logo} alt="Residenza Logo" style={{ maxWidth: "80px", height: "auto" }} />
-        <img src={logo_xiris_ac} alt="Xiris Logo" style={{  marginRight: "20px",maxWidth: "80px", height: "auto" }} />
+        <img src={logo_xiris_ac} alt="Xiris Logo" style={{ marginRight: "20px", maxWidth: "80px", height: "auto" }} />
       </Box>
 
       <Container sx={{ maxWidth: "1200px", marginTop: "10px" }}>
@@ -98,9 +156,7 @@ function App() {
           <Route path="/mantto" element={<Mantto_Main />} />
           <Route path="/checklist" element={<Checklist_Main />} />
           <Route path="/Avisos" element={<Avisos_main />} />
-          <Route path="/mudanza" element={<Mudanzas_main />} />
         </Routes>
-
       </Container>
 
     </Router>

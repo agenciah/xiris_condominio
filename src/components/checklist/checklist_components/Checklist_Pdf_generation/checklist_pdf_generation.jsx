@@ -1,31 +1,31 @@
 import PropTypes from 'prop-types';
 import jsPDF from 'jspdf';
 import { checklist_pdfStyles } from './checklist_pdf_styles';
-// import background from "../images/Diapositiva2.JPG";
+import background from "../checklist assets/checklist base.jpg";
 import { Button } from '@mui/material';
 
 function Checklist_PDFGeneration({ checklistData, images }) {
   const handleGeneratePDF = () => {
     const doc = new jsPDF();
 
-    // if (background) {
-    //   doc.addImage(
-    //     background,
-    //     'JPEG',
-    //     0,
-    //     0,
-    //     doc.internal.pageSize.getWidth(),
-    //     doc.internal.pageSize.getHeight()
-    //   );
-    // } else {
-    //   console.error("La imagen de fondo no se ha podido cargar.");
-    // }
+    if (background) {
+      doc.addImage(
+        background,
+        'JPEG',
+        0,
+        0,
+        doc.internal.pageSize.getWidth(),
+        doc.internal.pageSize.getHeight()
+      );
+    } else {
+      console.error("La imagen de fondo no se ha podido cargar.");
+    }
 
     doc.setFontSize(checklist_pdfStyles.title.fontSize || 16);
     doc.setFont(checklist_pdfStyles.title.fontStyle || 'normal');
     doc.setTextColor(checklist_pdfStyles.title.color || '#000000');
     doc.text(
-        checklist_pdfStyles.title.text || 'Checklist de Supervisión',
+        checklist_pdfStyles.title.text || '',
         checklist_pdfStyles.title.x || 10,
         checklist_pdfStyles.title.y || 10
     );

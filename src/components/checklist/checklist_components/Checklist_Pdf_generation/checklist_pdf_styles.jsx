@@ -1,7 +1,7 @@
 // pdfStyles.js
 export const checklist_pdfStyles = {
     title: {
-      text: 'Checklist de Supervisión',
+      text: '',
       x: 75,
       y: 60,
       fontSize: 16,

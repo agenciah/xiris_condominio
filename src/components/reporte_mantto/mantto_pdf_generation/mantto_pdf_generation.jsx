@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import jsPDF from 'jspdf';
 import { manttoPdfStyles } from './mantto_pdf_styles';
-// import background from "../images/reporte de mantenimiento.jpg";
+import background from "../mantto_assets/reporte de mantenimiento base.jpg";
 import { Button } from '@mui/material';
 
 function Mantto_PDFGeneration({ title, comments, images }) {
@@ -9,18 +9,18 @@ function Mantto_PDFGeneration({ title, comments, images }) {
     const doc = new jsPDF();
 
     // // Cargar imagen de fondo
-    // if (background) {
-    //   doc.addImage(
-    //     background,
-    //     'JPEG',
-    //     0,
-    //     0,
-    //     doc.internal.pageSize.getWidth(),
-    //     doc.internal.pageSize.getHeight()
-    //   );
-    // } else {
-    //   console.error("La imagen de fondo no se ha podido cargar.");
-    // }
+    if (background) {
+      doc.addImage(
+        background,
+        'JPEG',
+        0,
+        0,
+        doc.internal.pageSize.getWidth(),
+        doc.internal.pageSize.getHeight()
+      );
+    } else {
+      console.error("La imagen de fondo no se ha podido cargar.");
+    }
 
     // Estilo del título
     const titleX = manttoPdfStyles.title.x || 10;
@@ -53,7 +53,7 @@ function Mantto_PDFGeneration({ title, comments, images }) {
       doc.setTextColor(manttoPdfStyles.comments.color || '#000000');
 
       doc.text(
-        manttoPdfStyles.comments.title || 'Mensaje:',
+        manttoPdfStyles.comments.title || '',
         manttoPdfStyles.comments.x || 10,
         currentY
       );
