@@ -1,7 +1,7 @@
 import { useState, useRef, useEffect } from 'react';
 import html2canvas from 'html2canvas';
 import { jsPDF } from 'jspdf';
-// import background from '../images/Comunicado ejemplo.jpg';
+import background from '../avisos assets/avisos_xiris.jpg';
 
 function Avisos_form() {
   const [formData, setFormData] = useState({
@@ -100,17 +100,17 @@ function Avisos_form() {
           height: '1000px'
         }}
       >
-        {/* <img 
+        <img 
           src={background} 
           alt="Formato" 
           style={{ width: '100%', height: '100%' }} 
-        /> */}
+        />
         
         <div 
           ref={titleRef}
           style={{
             position: 'absolute', 
-            top: '250px', 
+            top: '200px', 
             left: '55px',
             maxWidth: "80%", 
             color: 'black', 
