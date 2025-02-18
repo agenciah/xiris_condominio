@@ -1,7 +1,7 @@
 import { useState, useRef, useEffect } from 'react';
 import html2canvas from 'html2canvas';
 import { jsPDF } from 'jspdf';
-import background from '../avisos assets/avisos_xiris.jpg';
+import background from '../avisos_assets/avisos_xiris.jpg';
 
 function Avisos_form() {
   const [formData, setFormData] = useState({
@@ -17,6 +17,19 @@ function Avisos_form() {
       setTitleHeight(titleRef.current.clientHeight);
     }
   }, [formData.titulo]);
+
+  // Función para obtener la fecha en el formato "Veracruz, Ver. A (día) de (mes) de (año)"
+  const getFormattedDate = () => {
+    const meses = [
+      "enero", "febrero", "marzo", "abril", "mayo", "junio", 
+      "julio", "agosto", "septiembre", "octubre", "noviembre", "diciembre"
+    ];
+    const fecha = new Date();
+    const dia = fecha.getDate();
+    const mes = meses[fecha.getMonth()];
+    const año = fecha.getFullYear();
+    return `Veracruz, Ver. A ${dia} de ${mes} de ${año}`;
+  };
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -106,6 +119,22 @@ function Avisos_form() {
           style={{ width: '100%', height: '100%' }} 
         />
         
+        {/* FECHA AUTOMÁTICA */}
+        <div 
+          style={{
+            position: 'absolute', 
+            top: '155px',  // Ajusta según el diseño
+            left: '445px',
+            maxWidth: "80%", 
+            color: 'black', 
+            fontSize: '20px', 
+            fontWeight: 'bold'
+          }}
+        >
+          {getFormattedDate()}
+        </div>
+
+        {/* TÍTULO */}
         <div 
           ref={titleRef}
           style={{
@@ -114,8 +143,8 @@ function Avisos_form() {
             left: '55px',
             maxWidth: "80%", 
             color: 'black', 
-            fontSize: '22px',  // Título más grande
-            fontWeight: 'bold', // Título en negritas
+            fontSize: '22px',
+            fontWeight: 'bold',
             whiteSpace: 'pre-wrap'
           }}
         >
@@ -124,15 +153,16 @@ function Avisos_form() {
           ))}
         </div>
 
+        {/* CUERPO DEL MENSAJE */}
         <div 
           style={{
             position: 'absolute', 
-            top: `${250 + titleHeight + 15}px`, // Ajustar la posición del cuerpo del mensaje
+            top: `${250 + titleHeight + 15}px`, 
             left: '50px', 
             maxWidth: "88%", 
             color: 'black', 
-            fontSize: '18px',  // Tamaño normal para el cuerpo del mensaje
-            textAlign: 'justify',  // Justificación del texto
+            fontSize: '18px',  
+            textAlign: 'justify',  
             whiteSpace: 'pre-wrap'
           }}
         >
