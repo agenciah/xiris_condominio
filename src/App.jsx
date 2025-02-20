@@ -127,6 +127,16 @@ const Home = () => {
             </Button>
           </Box>
         </Box>
+        </Container>
+        <Container
+        sx={{
+          marginTop: "20px",
+          padding: "15px",
+          backgroundColor: "#f5f5f5",
+          borderRadius: "8px",
+          boxShadow: "0px 2px 5px rgba(0, 0, 0, 0.1)"
+        }}
+        >
         <Box>
           <Typography variant="h6" gutterBottom>
             Link de formulario Solicitud de Tag Playas del conchal.
@@ -144,24 +154,36 @@ const Home = () => {
             </Button>
           </Box>
         </Box>
-        <Box>
-          <Typography variant="h6" gutterBottom>
-            Link de formulario Solicitud de Tag Condominio Xiris.
-          </Typography>
-          <Typography>
-            Copia el link y mándalo al propietario para que llene el formulario, al final, por favor solicita que te envíen el pdf generado.
-          </Typography>
-          <Box display="flex" alignItems="center" gap={1} marginTop={1}>
-            <Button 
-              variant="contained" 
-              onClick={() => handleCopy("https://agenciah.github.io/residenza_tag_condominio_xiris/")} 
-              sx={{ backgroundColor: "#26A9E1", color: "#fff" }}
-            >
-              Copiar
-            </Button>
-          </Box>
-        </Box>
         </Container>
+        <Container
+        sx={{
+          marginTop: "20px",
+          padding: "15px",
+          backgroundColor: "#f5f5f5",
+          borderRadius: "8px",
+          boxShadow: "0px 2px 5px rgba(0, 0, 0, 0.1)"
+        }}
+        >
+          <Box>
+            <Typography variant="h6" gutterBottom>
+              Link de formulario Solicitud de Tag Condominio Xiris.
+            </Typography>
+            <Typography>
+              Copia el link y mándalo al propietario para que llene el formulario, al final, por favor solicita que te envíen el pdf generado.
+            </Typography>
+            <Box display="flex" alignItems="center" gap={1} marginTop={1}>
+              <Button 
+                variant="contained" 
+                onClick={() => handleCopy("https://agenciah.github.io/residenza_tag_playas_conchal/")} 
+                sx={{ backgroundColor: "#26A9E1", color: "#fff" }}
+              >
+                Copiar
+              </Button>
+            </Box>
+          </Box>
+        </Container>
+        
+        
     </Container>
   );
 };
