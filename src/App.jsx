@@ -174,7 +174,7 @@ const Home = () => {
             <Box display="flex" alignItems="center" gap={1} marginTop={1}>
               <Button 
                 variant="contained" 
-                onClick={() => handleCopy("https://agenciah.github.io/residenza_tag_playas_conchal/")} 
+                onClick={() => handleCopy("https://agenciah.github.io/residenza_tag_condominio_xiris/")} 
                 sx={{ backgroundColor: "#26A9E1", color: "#fff" }}
               >
                 Copiar
