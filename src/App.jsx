@@ -55,7 +55,7 @@ const Home = () => {
       >
         <Box>
           <Typography variant="h6" gutterBottom>
-            Link de formulario para Airbnb.
+            Link de formulario para Alojamientos temporales.
           </Typography>
           <Typography>
             Copia el link y mándalo al propietario para que llene el formulario, al final, por favor solicita que te envíen la imagen generada.
@@ -63,7 +63,7 @@ const Home = () => {
           <Box display="flex" alignItems="center" gap={1} marginTop={1}>
             <Button 
               variant="contained" 
-              onClick={() => handleCopy("https://agenciah.github.io/residenza_condominio_xiris_aviso_de_mudanza/")} 
+              onClick={() => handleCopy("https://agenciah.github.io/alojamientos_temporales_xiris/")} 
               sx={{ backgroundColor: "#26A9E1", color: "#fff" }}
             >
               Copiar
